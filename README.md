@@ -21,12 +21,12 @@ to find vulnerabilities and learn how to fix them
 ```
 > Это через Docker Desktop подглядел
 
-Для проверки откроем браузер и перейдем по адресу:
-http://hello.dev/
+Для проверки откроем браузер и перейдем по адресу:  
+http://hello.loc
 
 Но сперва добавим одну строку в hosts файл:
 ```
-127.0.0.1 hello.dev
+127.0.0.1 hello.loc
 ```
 
 ---
