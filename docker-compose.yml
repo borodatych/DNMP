@@ -1,0 +1,40 @@
+# DNMP - Docker + Nginx + PHP-FPM + MySQL
+version: '3.9' # optional since v1.27.0
+services:
+  nginx:
+    container_name: dnmpNginx
+    image: nginx:latest
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./nginx/hosts:/etc/nginx/conf.d
+      - ./nginx/logs:/var/log/nginx
+      - ./www:/var/www
+    links:
+      - php
+  php:
+    container_name: dnmpPHP
+    build: ./images/php
+    links:
+      - mysql
+    volumes:
+      - ./www:/var/www
+  mysql:
+    image: mysql
+    container_name: dnmpMySQL
+    command:
+      --default-authentication-plugin=mysql_native_password && \
+      bash -c "chmod 644 /etc/mysql/my.cnf && /entrypoint.sh mysqld"
+    restart: always
+    ports:
+      - "3306:3306"
+    volumes:
+      - ./mysql/conf.d/my.cnf:/etc/mysql/conf.d/my.cnf
+      - ./mysql/lib:/var/lib/mysql
+      - ./mysql/logs:/var/log/mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: jnrhjqcz
+      MYSQL_DATABASE: dev
+      MYSQL_USER: dev
+      MYSQL_PASSWORD: jnrhjqcz
