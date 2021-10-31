@@ -58,4 +58,7 @@ docker exec -it dnmpMySQL bash
 // run mysql under dev
 docker exec -it dnmpMySQL sh -c 'mysql -udev -pjnrhjqcz'
 docker-compose exec mysql sh -c 'mysql -udev -pjnrhjqcz'
+
+// restart nginx after add virtual host
+docker restart dnmpNginx
 ```
