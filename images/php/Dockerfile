@@ -1,5 +1,6 @@
 # Для начала указываем исходный образ, он будет использован как основа
-FROM php:7.4-fpm
+#FROM php:7.4-fpm
+FROM php:8.2-fpm
 # Необязательная строка с указанием автора образа
 MAINTAINER borodatych <borodatych@demka.org>
 
@@ -12,7 +13,7 @@ RUN apt-get update && apt-get install -y \
     wget \
     git \
     mc screen htop pv \
-    libfreetype6-dev \
+    libfreetype-dev \
     libjpeg62-turbo-dev \
 	libpng-dev \
 	libonig-dev \
