@@ -2,7 +2,7 @@
 #FROM php:7.4-fpm
 FROM php:8.2-fpm
 # Необязательная строка с указанием автора образа
-MAINTAINER borodatych <borodatych@demka.org>
+LABEL org.opencontainers.image.authors="borodatych@demka.org"
 
 # RUN выполняет идущую за ней команду в контексте нашего образа.
 # В данном случае мы установим некоторые зависимости и модули PHP.
